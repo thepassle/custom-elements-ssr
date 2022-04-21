@@ -70,40 +70,8 @@ import '../components/my-element.js';
 <my-element client:idle></my-element>
 ```
 
-### Using third party components
+## Example
 
-If you use third party components, like for example:
-
-`src/components/my-tabs.js`:
-```js
-import { GenericTabs } from '@generic-components/components/generic-tabs/GenericTabs.js';
-
-export const tagName = 'my-tabs';
-customElements.define(tagName, GenericTabs);
-```
-
-You have to exclude the package name in your astro config from being externalized:
-
-`astro.config.mjs`:
-```diff
-import { defineConfig } from 'astro/config';
-import customElements from 'custom-elements-ssr/astro.js';
-import netlify from '@astrojs/netlify';
-
-// https://astro.build/config
-export default defineConfig({
-  integrations: [customElements()],
-  adapter: netlify(),
-  vite: {
-+    ssr: {
-+      noExternal: [
-+        "@generic-components/components"
-+      ],
-+    }
-  }
-});
-```
-
-You can find an example of this here:
+You can find an example here:
 - [github source](https://github.com/thepassle/astro-custom-element-example)
-- [netlify demo](vanilla-ssr-deploy-test.netlify.app/)
+- [netlify demo](https://vanilla-ssr-deploy-test.netlify.app/)
