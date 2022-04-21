@@ -1,0 +1,32 @@
+{
+  "name": "custom-elements-ssr",
+  "version": "0.0.6",
+  "description": "Custom elements renderer for ssr",
+  "type": "module",
+  "author": "open-wc",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thepassle/custom-elements-ssr"
+  },
+  "keywords": [
+    "astro-component",
+    "astro",
+    "renderer",
+    "ssr",
+    "lit",
+    "custom-element",
+    "webcomponent"
+  ],
+  "bugs": "https://github.com/thepassle/custom-elements-ssr",
+  "homepage": "",
+  "scripts": {
+  },
+  "dependencies": {
+    "@lit-labs/ssr": "^2.1.0",
+    "linkedom": "^0.14.7"
+  },
+  "peerDependencies": {
+    "@webcomponents/template-shadowroot": "^0.1.0"
+  }
+}
