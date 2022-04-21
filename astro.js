@@ -13,7 +13,8 @@ function getViteConfiguration() {
     },
     ssr: {
       external: [
-        "linkedom"
+        "linkedom",
+        "custom-elements-ssr/server.js"
       ]
     }
   };

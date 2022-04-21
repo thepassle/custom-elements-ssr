@@ -1,6 +1,6 @@
 {
   "name": "custom-elements-ssr",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Custom elements renderer for ssr",
   "type": "module",
   "author": "open-wc",

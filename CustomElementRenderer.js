@@ -22,7 +22,7 @@ export class CustomElementRender extends ElementRenderer {
 		}
 	}
 	async connectedCallback() {
-		this.element.connectedCallback();
+		this.element?.connectedCallback?.();
 		await this.element?.updateComplete || Promise.resolve();
 	}
 	attributeChangedCallback() { }
