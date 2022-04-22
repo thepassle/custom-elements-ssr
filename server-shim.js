@@ -15,8 +15,7 @@ customElements.define = (name, klass) => {
   try {
     originalDefine(name, klass);
   } catch(e) {
-
-    customElements.registry = new Map;
+    customElements.registry.delete(name);
     originalDefine(name, class extends klass {})
   }
 }
