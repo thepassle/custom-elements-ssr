@@ -10,6 +10,10 @@ It could be the case that you were hoping the Lit SSR package would also support
 
 Additionally the `ElementRenderer` for vanilla custom elements is a little bit different from Lit elements.
 
+## Limitations
+
+Linkedom has decent support for custom elements, but there is some functionality missing, like for example HTMLSlotElements `assignedNodes()` method. There is an open issue [here](https://github.com/WebReflection/linkedom/issues/131).
+
 ## @lit-labs/ssr usage
 
 Import the ElementRenderer:
