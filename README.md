@@ -2,7 +2,9 @@
 
 This package contains an Astro SSR integration to render vanilla custom elements on the server, as well as a [@lit-labs/ssr](https://www.npmjs.com/package/@lit-labs/ssr) compatible `ElementRenderer` for usage with [@lit-labs/ssr](https://www.npmjs.com/package/@lit-labs/ssr).
 
-enables server-side rendering and client-side hydration for your [Lit](https://lit.dev/) custom elements.
+Enables server-side rendering and client-side hydration for your [Lit](https://lit.dev/) custom elements.
+
+> Try it on [Stackblitz](https://stackblitz.com/edit/github-hcspcv-ccu1fd?file=src/pages/index.astro)
 
 ## Differences with lit SSR
 
