@@ -1,5 +1,17 @@
 import { parseHTML } from 'linkedom';
 
+/**
+ * Astro's webapi already polyfills `CustomEvent`. When creating CustomEvent in linkedom,
+ * it does a check to see if `typeof CustomEvent === 'function'` which it is, because 
+ * Astro already polyfills it. It then uses Astro's version of `CustomEvent`, which conflicts
+ * with Linkedom's `Event` and errors.
+ * 
+ * https://github.com/WebReflection/linkedom/issues/130
+ */ 
+ Object.assign(globalThis, {
+  CustomEvent: null
+});
+
 const {
   window, 
   document, 
