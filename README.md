@@ -58,7 +58,7 @@ class MyElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowroot.innerHTML = '<h1>Hello World</h1>';
+    this.shadowRoot.innerHTML = '<h1>Hello World</h1>';
   }
 }
 
