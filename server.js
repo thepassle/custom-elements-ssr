@@ -25,7 +25,7 @@ async function* render(tag, attrs, children) {
   yield `>`;
   const shadowContents = instance.renderShadow();
   if (shadowContents !== undefined) {
-    yield '<template shadowroot="open">';
+    yield '<template shadowrootmode="open">';
     yield* shadowContents;
     yield '</template>';
   }

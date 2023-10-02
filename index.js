@@ -4,7 +4,7 @@ function getViteConfiguration() {
   return {
     optimizeDeps: {
       include: [
-        "custom-elements-ssr/client-shim.min.js",
+        "custom-elements-ssr/client-shim.js",
         "@webcomponents/template-shadowroot/template-shadowroot.js",
       ],
       exclude: [

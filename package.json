@@ -12,6 +12,8 @@
   "keywords": [
     "astro-component",
     "astro",
+    "withastro",
+    "astro-integration",
     "renderer",
     "ssr",
     "lit",
@@ -21,6 +23,11 @@
   "bugs": "https://github.com/thepassle/custom-elements-ssr",
   "homepage": "",
   "scripts": {},
+  "exports":{
+    ".":"./index.js",
+    "./server.js": "./server.js",
+    "./client-shim.js": "./client-shim.js"
+  },
   "dependencies": {
     "@lit-labs/ssr": "^3.1.7",
     "linkedom": "^0.15.3"
