@@ -1,0 +1,17 @@
+{
+  "name": "test-examples",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@webcomponents/template-shadowroot": "^0.2.1",
+    "astro": "^3.2.2",
+    "custom-elements-ssr": "link:.."
+  }
+}

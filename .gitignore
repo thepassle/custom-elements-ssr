@@ -2,3 +2,6 @@ node_modules/
 .vscode/
 .DS_Store
 pnpm-lock.yaml
+/test-results/
+/playwright-report/
+/playwright/.cache/

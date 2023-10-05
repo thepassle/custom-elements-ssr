@@ -22,9 +22,12 @@
   ],
   "bugs": "https://github.com/thepassle/custom-elements-ssr",
   "homepage": "",
-  "scripts": {},
-  "exports":{
-    ".":"./index.js",
+  "scripts": {
+    "test": "pnpm playwright test",
+    "test-ui": "pnpm playwright test --ui"
+  },
+  "exports": {
+    ".": "./index.js",
     "./server.js": "./server.js",
     "./client-shim.js": "./client-shim.js"
   },
@@ -34,5 +37,9 @@
   },
   "peerDependencies": {
     "@webcomponents/template-shadowroot": "^0.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.2"
   }
 }

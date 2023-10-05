@@ -37,7 +37,7 @@ export default function customElements() {
     name: "custom-elements-ssr",
     hooks: {
       "astro:config:setup": ({ updateConfig, addRenderer, injectScript }) => {
-        injectScript("head-inline", readFileSync(new URL("./client-shim.min.js", import.meta.url), { encoding: "utf-8" }));
+        injectScript("page", readFileSync(new URL("./client-shim.js", import.meta.url), { encoding: "utf-8" }));
 
         addRenderer({
           name: "custom-elements-ssr",

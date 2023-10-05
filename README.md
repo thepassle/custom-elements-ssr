@@ -37,7 +37,7 @@ npm i custom-elements-ssr @webcomponents/template-shadowroot
 Add the integration to your `astro.config.mjs`:
 ```diff
 import { defineConfig } from 'astro/config';
-+ import customElements from 'custom-elements-ssr/astro.js';
++ import customElements from 'custom-elements-ssr';
 
 // https://astro.build/config
 export default defineConfig({
