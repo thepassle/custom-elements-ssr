@@ -2,19 +2,23 @@ import { readFileSync } from "node:fs";
 
 function getViteConfiguration() {
   return {
+    // assetsInclude: ["**/dsd-polyfill.js"],
     optimizeDeps: {
       include: [
-        "custom-elements-ssr/client-shim.js",
-        "@webcomponents/template-shadowroot/template-shadowroot.js",
+        "custom-elements-ssr",
       ],
       exclude: [
         "custom-elements-ssr/server.js",
-      ]
+      ],
+      force: true,
     },
     ssr: {
       external: [
         "linkedom",
-        "custom-elements-ssr/server.js"
+        "custom-elements-ssr/server.js",
+      ],
+      noExternal: [
+        "custom-elements-ssr/dsd-polyfill.js"
       ]
     }
   };
@@ -37,7 +41,7 @@ export default function customElements() {
     name: "custom-elements-ssr",
     hooks: {
       "astro:config:setup": ({ updateConfig, addRenderer, injectScript }) => {
-        injectScript("page", readFileSync(new URL("./client-shim.js", import.meta.url), { encoding: "utf-8" }));
+        injectScript("page", readFileSync(new URL("./dsd-polyfill.js", import.meta.url), { encoding: "utf-8" }));
 
         addRenderer({
           name: "custom-elements-ssr",

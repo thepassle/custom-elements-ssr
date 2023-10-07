@@ -29,14 +29,11 @@
   "exports": {
     ".": "./index.js",
     "./server.js": "./server.js",
-    "./client-shim.js": "./client-shim.js"
+    "./dsd-polyfill.js": "./dsd-polyfill.js"
   },
   "dependencies": {
     "@lit-labs/ssr": "^3.1.7",
-    "linkedom": "^0.15.3"
-  },
-  "peerDependencies": {
-    "@webcomponents/template-shadowroot": "^0.2.1"
+    "linkedom": "^0.15.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.38.1",

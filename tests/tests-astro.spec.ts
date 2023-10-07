@@ -10,3 +10,8 @@ test('Astro Zero-JS', async ({ page }) => {
   const script_tags = await page.locator('xpath=//script').count();
   expect.soft(script_tags, 'Number of scripts should be Zero').toEqual(0);
 });
+
+test('Minimal Custom Element', async ({ page }) => {
+  await page.goto('/minimal');
+
+});
