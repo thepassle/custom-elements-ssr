@@ -1,25 +1,17 @@
-import { readFileSync } from "node:fs";
-
 function getViteConfiguration() {
   return {
-    // assetsInclude: ["**/dsd-polyfill.js"],
     optimizeDeps: {
       include: [
         "custom-elements-ssr",
       ],
-      exclude: [
-        "custom-elements-ssr/server.js",
-      ],
-      force: true,
+    },
+    build: {
+      assetsInlineLimit: 0,
     },
     ssr: {
       external: [
         "linkedom",
-        "custom-elements-ssr/server.js",
       ],
-      noExternal: [
-        "custom-elements-ssr/dsd-polyfill.js"
-      ]
     }
   };
 }
@@ -31,7 +23,7 @@ function getViteConfiguration() {
  * with Linkedom's `Event` and errors.
  * 
  * https://github.com/WebReflection/linkedom/issues/130
- */ 
+ */
 Object.assign(globalThis, {
   CustomEvent: null
 });
@@ -41,7 +33,6 @@ export default function customElements() {
     name: "custom-elements-ssr",
     hooks: {
       "astro:config:setup": ({ updateConfig, addRenderer, injectScript }) => {
-        injectScript("page", readFileSync(new URL("./dsd-polyfill.js", import.meta.url), { encoding: "utf-8" }));
 
         addRenderer({
           name: "custom-elements-ssr",

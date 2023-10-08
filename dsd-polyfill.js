@@ -1,4 +1,3 @@
-
 async function process_dsd(root) {
 	// console.log("DSR polyfill processing...");
 	await root.querySelectorAll("template[shadowrootmode]").forEach(template => {
@@ -23,6 +22,6 @@ async function install_polyfill_handler() {
 }
 
 
-	if (!HTMLTemplateElement.prototype.hasOwnProperty('shadowRootMode')) {
-		install_polyfill_handler();
-	}
+if (!HTMLTemplateElement.prototype.hasOwnProperty('shadowRootMode')) {
+	install_polyfill_handler();
+}

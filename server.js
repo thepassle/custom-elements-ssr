@@ -1,10 +1,9 @@
 import './server-shim.js';
 import { DOMParser } from 'linkedom';
 import { CustomElementRender } from './CustomElementRenderer.js';
-// import dsd_polyfill_url from './dsd-polyfill.js?url';
+import dsd_polyfill_url from './dsd-polyfill.min.js?url';
 
-const dsd_polyfill_url = "/custom-elements-ssr/dsd-polyfill.js";
-console.log("url: ", dsd_polyfill_url);
+console.log("dsd_polyfill_url: ", dsd_polyfill_url);
 
 async function check(tag) {
   return !!customElements?.get?.(tag);
@@ -32,10 +31,10 @@ async function* render(tag, attrs, children) {
     yield '<template shadowrootmode="open">';
     yield* shadowContents;
     yield '</template>';
+    yield `<script type="module" src="${dsd_polyfill_url}"></script>`;
   }
   yield* instance.renderLight();
   yield `</${tag}>`;
-  // yield `<script src="${dsd_polyfill_url}"></script>`;
 }
 
 async function renderToStaticMarkup(tag, attrs, children) {
