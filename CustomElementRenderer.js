@@ -30,6 +30,6 @@ export class CustomElementRender extends ElementRenderer {
     yield this.element.innerHTML;
   }
   *renderShadow() {
-    yield this.element.shadowRoot.innerHTML;
+    yield this.element.shadowRoot?.innerHTML;
   }
 }

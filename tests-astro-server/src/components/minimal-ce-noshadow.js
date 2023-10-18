@@ -1,6 +1,4 @@
-
-
-class MinimalCustomElement extends HTMLElement {
+class MinimalCustomElementNoShadow extends HTMLElement {
     static observedAttributes = ["color"];
   
     constructor() {
@@ -8,11 +6,10 @@ class MinimalCustomElement extends HTMLElement {
     }
   
     connectedCallback() {
-      const shadow = this.attachShadow({ mode: "open" });
       const p = document.createElement("p");
-      const text = document.createTextNode("TestText");
+      const text = document.createTextNode("TestText noshadow");
       p.appendChild(text);
-      shadow.appendChild(p);
+      this.appendChild(p);
 
       console.log("Custom element added to page.");
     }
@@ -30,5 +27,5 @@ class MinimalCustomElement extends HTMLElement {
     }
   }
   
-  customElements.define("minimal-custom-element", MinimalCustomElement);
+  customElements.define("minimal-ce-noshadow", MinimalCustomElementNoShadow);
   

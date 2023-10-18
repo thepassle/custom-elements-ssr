@@ -1,13 +1,25 @@
 ---
-import "../components/minimal-custom-element.js";
+import "../components/minimal-ce.js";
+import "../components/minimal-ce-noshadow.js";
 ---
 
 <html>
-    <head><title>Minimal Testpage</title></head>
+    <head><title>Minimal CE Testpage</title></head>
     <body>
         <h1>Minimal Custom Element Test</h1>
 
-        <minimal-custom-element></minimal-custom-element>
-        <minimal-custom-element></minimal-custom-element>
+        <b id="noscript">Java Script is disabled</b>
+        <script>document.getElementById("noscript").hidden = true;</script>
+
+        <p>
+            Although we use more Custom Elements on this page, the DSD polyfill
+            should be only download once.
+        </p>
+
+        <minimal-ce>Replacement Text-1</minimal-ce>
+        <minimal-ce>Replacement Text-2</minimal-ce>
+
+        <minimal-ce-noshadow>Replacement Text-1 noshadow</minimal-ce-noshadow>
+        <minimal-ce-noshadow>Replacement Text-2 noshadow</minimal-ce-noshadow>
     </body>
 </html>
