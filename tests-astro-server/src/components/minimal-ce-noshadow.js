@@ -7,9 +7,13 @@ class MinimalCustomElementNoShadow extends HTMLElement {
   
     connectedCallback() {
       const p = document.createElement("p");
-      const text = document.createTextNode("TestText noshadow");
+      const text = document.createTextNode("Test-Text without Shadow DOM");
       p.appendChild(text);
       this.appendChild(p);
+
+      const light = document.createTextNode("Light DOM data");
+      this.appendChild(light);
+
 
       console.log("Custom element added to page.");
     }

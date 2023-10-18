@@ -12,4 +12,7 @@ test('Minimal NoScript', async ({ page }) => {
     // Although we use more Custom Elements on this page,
     // the DSD polyfill will not be download if JS is disabled.
     expect(count, "Polyfill shouldn't be downloaded in NoScript Mode").toEqual(0)
+
+    await expect.soft(page.getByText('Test-Text in Shadow DOM')).toHaveCount(2);
+    await expect(page.getByText('Test-Text without Shadow DOM')).toHaveCount(2);
 });

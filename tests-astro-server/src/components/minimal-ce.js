@@ -8,9 +8,11 @@ class MinimalCustomElement extends HTMLElement {
     connectedCallback() {
       const shadow = this.attachShadow({ mode: "open" });
       const p = document.createElement("p");
-      const text = document.createTextNode("TestText");
+      const text = document.createTextNode("Test-Text in Shadow DOM");
       p.appendChild(text);
       shadow.appendChild(p);
+      const light = document.createTextNode("Light DOM data");
+      this.appendChild(light);
 
       console.log("Custom element added to page.");
     }

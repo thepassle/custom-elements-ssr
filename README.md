@@ -8,7 +8,7 @@ Enables server-side rendering and client-side hydration for your [Lit](https://l
 
 ## Differences with lit SSR
 
-It could be the case that you were hoping the Lit SSR package would also support vanilla Custom Elements, and were surprised to find that it didnt. The reason for this is that to render custom elements on the server side, we need some browser APIs to be available in a Node.js environment. Lit however, makes surprisingly little use of browser APIs to be able to do efficient rendering. This means that the DOM shim that Lit SSR requires is really, really minimal, and doesn't include a bunch of things, like for example querySelectors. This package instead makes use of [linkedom]() to shim browser functionality on the server, which does include the required browser APIs to render custom elements on the server.
+It could be the case that you were hoping the Lit SSR package would also support vanilla Custom Elements, and were surprised to find that it didn't. The reason for this is that to render custom elements on the server side, we need some browser APIs to be available in a Node.js environment. Lit however, makes surprisingly little use of browser APIs to be able to do efficient rendering. This means that the DOM shim that Lit SSR requires is really, really minimal, and doesn't include a bunch of things, like for example querySelectors. This package instead makes use of [linkedom]() to shim browser functionality on the server, which does include the required browser APIs to render custom elements on the server.
 
 Additionally the `ElementRenderer` for vanilla custom elements is a little bit different from Lit elements.
 

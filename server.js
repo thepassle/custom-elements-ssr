@@ -3,8 +3,6 @@ import { DOMParser } from 'linkedom';
 import { CustomElementRender } from './CustomElementRenderer.js';
 import dsd_polyfill_url from './dsd-polyfill.min.js?url';
 
-console.log("dsd_polyfill_url: ", dsd_polyfill_url);
-
 async function check(tag) {
   return !!customElements?.get?.(tag);
 }
@@ -41,6 +39,8 @@ async function* render(tag, attrs, children) {
 }
 
 async function renderToStaticMarkup(tag, attrs, children) {
+
+  // console.log('CHILDREN:', children);
 
   let html = '';
   for await (let chunk of render(tag, attrs, children)) {

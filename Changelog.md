@@ -14,12 +14,14 @@
 
 * Fix: Support Custom Elements without shadow DOM
 
-* Feature: Extensive e2e Tests
+* Feature: e2e Tests
 
 ## TODO
 
 * Slots
 
-* Hydration hook
+* Render and hydration hook
 
 * Lit and Rust Test examples
+  
+* MDX support
