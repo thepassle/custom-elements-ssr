@@ -7,10 +7,10 @@ class MinimalCustomElement extends HTMLElement {
   
     connectedCallback() {
       const shadow = this.attachShadow({ mode: "open" });
-      const p = document.createElement("p");
-      const text = document.createTextNode("Test-Text in Shadow DOM");
-      p.appendChild(text);
-      shadow.appendChild(p);
+      shadow.innerHTML = `
+        <style> p { text-color: red; } </style>
+        <p>Test-Text in Shadow DOM</p>
+      `
       const light = document.createTextNode("Light DOM data");
       this.appendChild(light);
 

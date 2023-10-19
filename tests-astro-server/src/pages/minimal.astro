@@ -16,10 +16,17 @@ import "../components/minimal-ce-noshadow.js";
             should be only downloaded once.
         </p>
 
-        <minimal-ce>Slotted Content (1)</minimal-ce>
-        <minimal-ce>Slotted Content (2)</minimal-ce>
+        <style is:global>
+            div {
+                outline: solid;
+                margin-bottom: 20px;
+            }
+        </style>
 
-        <minimal-ce-noshadow>Slotted Content (3) -- without shadow DOM</minimal-ce-noshadow>
-        <minimal-ce-noshadow>Slotted Content (4) -- without shadow DOM</minimal-ce-noshadow>
+        <div><minimal-ce>Slotted Content (1)</minimal-ce></div>
+        <div><minimal-ce>Slotted Content (2)</minimal-ce></div>
+
+        <div><minimal-ce-noshadow>Slotted Content (3) -- without shadow DOM</minimal-ce-noshadow></div>
+        <div><minimal-ce-noshadow>Slotted Content (4) -- without shadow DOM</minimal-ce-noshadow></div>
     </body>
 </html>

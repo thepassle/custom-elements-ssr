@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Minimal Custom Element', async ({ page }) => {
+test('Minimal Component', async ({ page }) => {
 
     let count = 0;
     page.on('request', req => {

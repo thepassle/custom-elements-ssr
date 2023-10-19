@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.use({ javaScriptEnabled: false });
 
-test('Minimal NoScript', async ({ page }) => {
+test('Minimal NoScript', async ({ page, browserName }) => {
+    test.fail(browserName === 'firefox', 
+    'Firefox still needs shadow DOM polyfill');
 
     let count = 0;
     page.on('request', req => {
