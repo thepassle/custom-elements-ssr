@@ -26,7 +26,6 @@ async function* render(tag, attrs, children) {
   yield `>`;
   const shadowContents = instance.renderShadow();
   const shadow_content_top = shadowContents.next().value;
-  console.log("DSD: ", shadow_content_top);
   if (shadow_content_top !== undefined) {
     yield '<template shadowrootmode="open">';
     yield shadow_content_top;
@@ -34,6 +33,8 @@ async function* render(tag, attrs, children) {
     yield '</template>';
     yield `<script type="module" src="${dsd_polyfill_url}"></script>`;
   }
+  if (children)
+    yield* instance.renderSlots(children);
   yield* instance.renderLight();
   yield `</${tag}>`;
 }

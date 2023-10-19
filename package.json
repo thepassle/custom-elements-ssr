@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@lit-labs/ssr": "^3.1.8",
-    "linkedom": "^0.15.6"
+    "linkedom": "^0.15.6",
+    "parse5": "^7.1.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
