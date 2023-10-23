@@ -1,6 +1,7 @@
 import './server-shim.js';
 import { DOMParser } from 'linkedom';
 import { CustomElementRender } from './CustomElementRenderer.js';
+import dsd_polyfill_url from './dsd-polyfill.min.js?url';
 
 async function check(tag) {
   return !!customElements?.get?.(tag);
@@ -24,16 +25,23 @@ async function* render(tag, attrs, children) {
   yield* instance.renderAttributes();
   yield `>`;
   const shadowContents = instance.renderShadow();
-  if (shadowContents !== undefined) {
-    yield '<template shadowroot="open">';
+  const shadow_content_top = shadowContents.next().value;
+  if (shadow_content_top !== undefined) {
+    yield '<template shadowrootmode="open">';
+    yield shadow_content_top;
     yield* shadowContents;
     yield '</template>';
+    yield `<script type="module" src="${dsd_polyfill_url}"></script>`;
   }
+  if (children)
+    yield* instance.renderSlots(children);
   yield* instance.renderLight();
   yield `</${tag}>`;
 }
 
 async function renderToStaticMarkup(tag, attrs, children) {
+
+  // console.log('CHILDREN:', children);
 
   let html = '';
   for await (let chunk of render(tag, attrs, children)) {

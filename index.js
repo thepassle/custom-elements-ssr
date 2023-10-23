@@ -1,21 +1,17 @@
-import { readFileSync } from "node:fs";
-
 function getViteConfiguration() {
   return {
     optimizeDeps: {
       include: [
-        "custom-elements-ssr/client-shim.min.js",
-        "@webcomponents/template-shadowroot/template-shadowroot.js",
+        "custom-elements-ssr",
       ],
-      exclude: [
-        "custom-elements-ssr/server.js",
-      ]
+    },
+    build: {
+      assetsInlineLimit: 0,
     },
     ssr: {
       external: [
         "linkedom",
-        "custom-elements-ssr/server.js"
-      ]
+      ],
     }
   };
 }
@@ -27,7 +23,7 @@ function getViteConfiguration() {
  * with Linkedom's `Event` and errors.
  * 
  * https://github.com/WebReflection/linkedom/issues/130
- */ 
+ */
 Object.assign(globalThis, {
   CustomEvent: null
 });
@@ -37,7 +33,6 @@ export default function customElements() {
     name: "custom-elements-ssr",
     hooks: {
       "astro:config:setup": ({ updateConfig, addRenderer, injectScript }) => {
-        injectScript("head-inline", readFileSync(new URL("./client-shim.min.js", import.meta.url), { encoding: "utf-8" }));
 
         addRenderer({
           name: "custom-elements-ssr",

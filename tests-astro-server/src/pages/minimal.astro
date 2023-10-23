@@ -1,0 +1,32 @@
+---
+import "../components/minimal-ce.js";
+import "../components/minimal-ce-noshadow.js";
+---
+
+<html>
+    <head><title>Minimal CE Testpage</title></head>
+    <body>
+        <h1>Minimal Custom Element Test</h1>
+
+        <b id="noscript">Java Script is disabled</b>
+        <script>document.getElementById("noscript").hidden = true;</script>
+
+        <p>
+            Although we use more Custom Elements on this page, the DSD polyfill
+            should be only downloaded once.
+        </p>
+
+        <style is:global>
+            div {
+                outline: solid;
+                margin-bottom: 20px;
+            }
+        </style>
+
+        <div><minimal-ce>Slotted Content (1)</minimal-ce></div>
+        <div><minimal-ce>Slotted Content (2)</minimal-ce></div>
+
+        <div><minimal-ce-noshadow>Slotted Content (3) -- without shadow DOM</minimal-ce-noshadow></div>
+        <div><minimal-ce-noshadow>Slotted Content (4) -- without shadow DOM</minimal-ce-noshadow></div>
+    </body>
+</html>

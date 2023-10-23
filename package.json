@@ -12,6 +12,8 @@
   "keywords": [
     "astro-component",
     "astro",
+    "withastro",
+    "astro-integration",
     "renderer",
     "ssr",
     "lit",
@@ -21,12 +23,23 @@
   "bugs": "https://github.com/thepassle/custom-elements-ssr",
   "homepage": "",
   "scripts": {
+    "build": "pnpm terser dsd-polyfill.js -o dsd-polyfill.min.js",
+    "test": "pnpm playwright test",
+    "test-ui": "pnpm playwright test --ui"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./server.js": "./server.js",
+    "./dsd-polyfill.js": "./dsd-polyfill.js",
+    "./dsd-polyfill.min.js": "./dsd-polyfill.min.js"
   },
   "dependencies": {
-    "@lit-labs/ssr": "^2.1.0",
-    "linkedom": "^0.14.7"
+    "@lit-labs/ssr": "^3.1.8",
+    "linkedom": "^0.15.6",
+    "parse5": "^7.1.2"
   },
-  "peerDependencies": {
-    "@webcomponents/template-shadowroot": "^0.1.0"
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "terser": "^5.22.0"
   }
 }
